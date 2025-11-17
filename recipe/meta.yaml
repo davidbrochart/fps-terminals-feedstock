@@ -20,7 +20,7 @@ requirements:
   host:
     - python
     - pip
-    - hatchling
+    - uv-build
   run:
     - python
     - jupyverse-api >=0.12.0,<0.13.0
