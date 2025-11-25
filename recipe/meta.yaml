@@ -1,5 +1,5 @@
 {% set name = "fps-terminals" %}
-{% set version = "0.9.3" %}
+{% set version = "0.9.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,21 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fps_terminals-{{ version }}.tar.gz
-  sha256: 10e0edc4d0fe88b5341b455faed80fb2a1e0fc8f37eb2f9a6e4f0ffb9fd7678a
+  sha256: c9527c49a2b66587044ca2fe9bab063cfef0795e2c94c0acd21fd380781686e5
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - uv-build                               # [build_platform != target_platform]
   host:
     - python
     - pip
-    - hatchling
+    - uv-build
   run:
     - python
     - jupyverse-api >=0.12.0,<0.13.0
