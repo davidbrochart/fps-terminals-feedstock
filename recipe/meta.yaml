@@ -1,5 +1,5 @@
 {% set name = "fps-terminals" %}
-{% set version = "0.9.4" %}
+{% set version = "0.9.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fps_terminals-{{ version }}.tar.gz
-  sha256: c9527c49a2b66587044ca2fe9bab063cfef0795e2c94c0acd21fd380781686e5
+  sha256: 81a16b9ffb2add244c3da0d78794c12af1013602d5fba6f013fc2519037f15d4
 
 build:
   number: 0
@@ -24,9 +24,9 @@ requirements:
     - uv-build
   run:
     - python
-    - jupyverse-api >=0.12.0,<0.13.0
+    - jupyverse-api >=0.13.0,<0.14.0
     - pywinpty  # [win]
-    - anyio >=4.8.0,<5.0.0
+    - anyio >=4.9.0,<5.0.0
 
 test:
   requires:
