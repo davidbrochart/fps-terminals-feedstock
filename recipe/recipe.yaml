@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.10.1"
+  version: "0.10.2"
 
 package:
   name: fps-terminals
@@ -9,24 +9,24 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/f/fps-terminals/fps_terminals-${{ version }}.tar.gz
-    sha256: 6cc15cf2583c9e2a55e874ea03b10cb23828ebcadbad18590cebbf0ed7d038c0
+    sha256: d4e78a8352b24bd8415c280486933cee62c216a8eab57748b880df875a1864b6
 
 build:
-  number: 1
+  number: 0
   script:
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   build:
     - python
-    - uv-build
+    - uv-build >=0.11.32,<0.12
     - if: build_platform != target_platform
       then:
         - cross-python_${{ target_platform }}
   host:
     - python
     - pip
-    - uv-build
+    - uv-build >=0.11.32,<0.12
   run:
     - python
     - anyio
